@@ -14,7 +14,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   bool _permissionReady = false;
 
   Future<void> fileSetup() async{
@@ -85,7 +84,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.wait([
       fileSetup(),
     ]).then((value) {
-      Navigator.popAndPushNamed(context, '/account_list');
+      Navigator.popAndPushNamed(context, '/login');
     });
   }
 

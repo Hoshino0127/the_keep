@@ -3,6 +3,7 @@ import 'package:keep_flutter/AccountDetails.dart';
 import 'package:keep_flutter/AccountList.dart';
 import 'package:keep_flutter/Settings.dart';
 import 'package:keep_flutter/SplashScreen.dart';
+import 'package:keep_flutter/Login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     '/account_list':(context) => AccountList(),
     '/account_details':(context, {arguments}) => AccountDetails(accountModel: arguments,),
     '/settings':(context) => Settings(),
+    '/login':(context) => Login(),
   };
 
   // This widget is the root of your application.

@@ -33,4 +33,36 @@ Widget loadingIndicator() {
   );
 }
 
+showMessageDialog(BuildContext context, String msg) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Center(
+              child: Text(
+                msg,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            child: const Text('Close'),
+            onPressed: () {
+              Navigator.pop(context, 'Cancel');
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
