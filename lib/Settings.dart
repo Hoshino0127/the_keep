@@ -201,7 +201,7 @@ class _SettingsState extends State<Settings> {
                                   print(splitString.length);
                                   print(splitString[splitString.length -1]);
                                   for(String str in splitString){
-
+                                    str.replaceAll('\'', '');
                                     if(str.contains('INSERT')){
                                       print('run');
                                       print(str);
@@ -234,9 +234,45 @@ class _SettingsState extends State<Settings> {
                                 ),
                               ),
                               onTap: () async {
-                                accountDB.deleteAccountRawSQL().then((value) {
-                                  showMessageDialog(context, 'Account deleted successfully');
-                                });
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                      ),
+                                      content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: const [
+                                          Center(
+                                            child: Text(
+                                              "Are you sure you want to delete all records?",
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          child: const Text('No'),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                        TextButton(
+                                          child: const Text('Yes'),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                            accountDB.deleteAccountRawSQL().then((value) {
+                                              showMessageDialog(context, 'Account deleted successfully');
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+
                               },
                             ),
                             SizedBox(

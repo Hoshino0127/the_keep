@@ -64,6 +64,8 @@ class _AccountListState extends State<AccountList> {
       }),
     ]).then((value) {
       setState(() {
+        setDefaultSort();
+        sortList();
         isLoading = !isLoading;
       });
     });

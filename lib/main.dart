@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Keep',
+      debugShowCheckedModeBanner:false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

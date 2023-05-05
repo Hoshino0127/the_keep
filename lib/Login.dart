@@ -13,7 +13,7 @@ class _LoginState extends State<Login> {
   Future<void> _authenticate() async {
     bool authenticated = await AuthService.authenticate(context);
     if(authenticated){
-      Navigator.pushNamed(context, '/account_list');
+      Navigator.popAndPushNamed(context, '/account_list');
     }else{
       showMessageDialog(context, 'Please authenticate your identity before continue');
     }
